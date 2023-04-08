@@ -17,7 +17,7 @@ use serde::{Deserialize, Serialize};
 ///     <h3 class={ "description" } id={ description }>
 ///         { description }
 ///     </h3>
-//  </div>
+/// </div>
 /// ```
 #[derive(Debug, Default, PartialEq, Serialize, Deserialize, Clone)]
 pub struct Project {
