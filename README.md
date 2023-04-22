@@ -16,18 +16,20 @@ After compiling and organizing it should look something like this
 
 * Projects
 
-| name | image_path | description |
-| ---  | --- | --- | 
-| TEXT PRIMARY KEY NOT NULL UNIQUE | TEXT NOT NULL UNIQUE | TEXT NOT NULL UNIQUE |
+| short | alt | name | image_path | description |
+| ----- | --- | ---- | ---------- | ----------- |
+| Used as an indentifier, keep it to one word | The alt text for the image | The title of the project | The image used for the project, path starts at ./dist/assets/projects | The description of the path |
 
 * charites 
 
-| flavor_text | link_text | link | 
-| --- | --- | --- |
-| TEXT PRIMARY KEY NOT NULL | TEXT NOT NULL | TEXT NOT NULL UNIQUE |
+| short | flavor_text | link_text | link | 
+| ----- | ----------- | --------- | ---- |
+| Used as an indentifier, keep it to one word | The text without the link | The text that makes up the link | The link to be used |
 
 * social_buttons
 
-| at | link_text | link | 
-| --- | --- | --- |
-| TEXT NOT NULL | TEXT NOT NULL | TEXT PRIMARY KEY NOT NULL UNIQUE |
+| short | at | name | link | 
+| ----- | -- | ---- | ---- |
+| Used as an indentifier, keep it to one word | The name displayed | The name of the webiste being used [^1] | The link to be used |
+
+[^1]: Make sure to include the domain. E.g, github.com instead of github
