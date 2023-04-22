@@ -8,9 +8,9 @@ Make sure that there is a file named projects.db in both the root directory of t
 
 You can setup the database by running these three commands in sqlite 
 ```
-CREATE TABLE projects(name TEXT PRIMARY KEY NOT NULL UNIQUE, image_path TEXT NOT NULL UNIQUE, description TEXT NOT NULL UNIQUE)
-CREATE TABLE charities(flavor_text TEXT PRIMARY KEY NOT NULL, link_text TEXT NOT NULL, link TEXT NOT NULL UNIQUE)
-CREATE TABLE social_buttons (at TEXT NOT NULL, name TEXT NOT NULL, link TEXT PRIMARY KEY NOT NULL UNIQUE)
+CREATE TABLE charities(short TEXT PRIMARY KEY NOT NULL UNIQUE, flavor_text TEXT NOT NULL, link_text TEXT NOT NULL, link TEXT NOT NULL UNIQUE);
+CREATE TABLE social_buttons(short TEXT PRIMARY KEY NOT NULL UNIQUE, at TEXT NOT NULL, name TEXT NOT NULL, link TEXT NOT NULL UNIQUE);
+CREATE TABLE projects(short TEXT PRIMARY KEY NOT NULL UNIQUE, alt TEXT NOT NULL UNIQUE, name TEXT NOT NULL UNIQUE, image_path TEXT NOT NULL UNIQUE, description TEXT NOT NULL UNIQUE);
 ```
 > If you need any help understanding what each column/row does check out the documentation [here](https://github.com/Andrea-moth/About-me/blob/main/src/lib.rs)
 
