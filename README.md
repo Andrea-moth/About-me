@@ -12,24 +12,36 @@ After compiling and organizing it should look something like this
 └── server
 ```
 
-## Database schema 
+## How the database is used
 
 * Projects
 
-| short | alt | name | image_path | description |
-| ----- | --- | ---- | ---------- | ----------- |
-| Used as an indentifier, keep it to one word | The alt text for the image | The title of the project | The image used for the project, path starts at ./dist/assets/projects | The description of the path |
+```
+<a class={ "project" } id={ short } href={ short }>
+    <title class="name" >
+        { name }
+    </title>
+    <img class= { "icon" } src={ format!("/assets/projects/{}", image_path ) } alt={ alt }/>
+    <article class={ "description" } >
+        { description }
+    </article>
+</a>
+```
 
 * charites 
 
-| short | flavor_text | link_text | link | 
-| ----- | ----------- | --------- | ---- |
-| Used as an indentifier, keep it to one word | The text without the link | The text that makes up the link | The link to be used |
+```
+<h2 id={ "charity" }>
+    { flavor_text }
+    <a href={ link }>{ link_text }</a>
+</h2>
+```
 
 * social_buttons
 
-| short | at | name | link | 
-| ----- | -- | ---- | ---- |
-| Used as an indentifier, keep it to one word | The name displayed | The name of the webiste being used [^1] | The link to be used |
-
-[^1]: Make sure to include the domain. E.g, github.com instead of github
+```
+<a id={ name } href={ link }>
+    <img class= { "favicon" } src={ format!("https://icons.duckduckgo.com/ip3/{}.ico", name) }/>
+    <span>{ at }</span>
+</a>
+```
