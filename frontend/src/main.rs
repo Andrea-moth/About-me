@@ -49,15 +49,15 @@ struct ProjectProp {
 fn project(ProjectProp { project }: &ProjectProp) -> Html {
     html!(
         <>
-            <div class={ "project" } id={ project.name.clone() }>
-                <h2 class="name">
+            <a class={ "project" } id={ project.short.clone() } href={ project.short.clone() }>
+                <title class="name" >
                     { project.name.clone() }
-                </h2>
-                <img class= { "icon" } src={ format!("./projects/{}", project.image_path ) }/>
-                <h3 class={ "description" } id={ project.description.clone() }>
+                </title>
+                <img class= { "icon" } src={ format!("/assets/projects/{}", project.image_path ) } alt={ project.alt.clone() }/>
+                <article class={ "description" } >
                     { project.description.clone() }
-                </h3>
-            </div>
+                </article>
+            </a>
         </>
     )
 }
@@ -111,7 +111,7 @@ fn app() -> Html {
                 let projects = projects.clone();
                 let social_buttons = social_buttons.clone();
                 wasm_bindgen_futures::spawn_local(async move {
-                    if let Ok(response) = Request::get("/charity").send().await {
+                    if let Ok(response) = Request::get("/charities").send().await {
                         charity.set(response.json().await.unwrap_or(Charity::error()));
                     } else {
                         charity.set(Charity::error());
@@ -143,7 +143,7 @@ fn app() -> Html {
                         <h1>
                             { "Freyja-Moth" }
                         </h1>
-                        <img class={ "pfp" } src={ "pfp.png" }/>
+                        <img class={ "pfp" } src={ "assets/pfp.png" } alt={ "A rounded icon of a picrew. She has brown eyes and hair, and is wearing a blue tank top with daisy earings and a daisy chain on her head. She is also holding a purple butterfly" }/>
                     </div>
                     <div id={ "site-row" }>
                         <SocialButtonList buttons={ (*social_buttons).clone() }/>

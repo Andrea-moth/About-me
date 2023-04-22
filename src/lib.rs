@@ -17,10 +17,12 @@ use serde::{Deserialize, Serialize};
 ///     <h3 class={ "description" } id={ description }>
 ///         { description }
 ///     </h3>
-/// </div>
+//  </div>
 /// ```
 #[derive(Debug, Default, PartialEq, Serialize, Deserialize, Clone)]
 pub struct Project {
+    pub short: String,
+    pub alt: String,
     pub name: String,
     pub image_path: String,
     pub description: String,
@@ -41,6 +43,7 @@ pub struct Project {
 /// ```
 #[derive(Debug, Default, PartialEq, Serialize, Deserialize, Clone)]
 pub struct Charity {
+    pub short: String,
     pub flavor_text: String,
     pub link_text: String,
     pub link: String,
@@ -49,6 +52,7 @@ impl Charity {
     /// Used as a default for when the charity cannot be found in the database
     pub fn error() -> Self {
         Self {
+            short: "error".to_string(),
             flavor_text: "Charity link not found".to_string(),
             link_text: "".to_string(),
             link: "".to_string(),
@@ -58,6 +62,7 @@ impl Charity {
 
 /// Used as an intermediate for both the front and backend to parse and load social links
 ///
+/// The short is used to identify the link
 /// The at is used for display
 /// The name is used for the name of the site
 /// The link is the link to the site
@@ -69,6 +74,7 @@ impl Charity {
 /// </a>
 #[derive(Debug, Default, PartialEq, Serialize, Deserialize, Clone)]
 pub struct SocialLink {
+    pub short: String,
     pub at: String,
     pub name: String,
     pub link: String,
