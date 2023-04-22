@@ -48,6 +48,21 @@ CREATE TABLE projects(short TEXT PRIMARY KEY NOT NULL UNIQUE, alt TEXT NOT NULL 
 
 ## Building
 
-Run `cargo build --release`, move ./target/release/server and database.db to the directory where you intend to keep your files and run `RUST_LOG=info ./server`
+Run
 
-[^1]: Make sure the database is named projects.db, I will add configuration is future
+```bash
+cargo build --release
+mv ../target/release/server <prefered-directory>
+mv projects.db <prefered-directory>
+echo "#!/usr/bin/env bash\n\nRUST_LOG=info ./server" >> <prefered-directory>/run.sh
+chmod +X <prefered-directory>/run.sh
+```
+
+Then you can run
+```
+cd <prefered-directory>
+./run.sh
+``` 
+to start the server
+
+[^1]: Make sure the database is named projects.db, I will add configuration in the future
