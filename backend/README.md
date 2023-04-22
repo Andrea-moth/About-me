@@ -6,7 +6,7 @@ This is where all the database stuff goes
 ## Setting up the database
 
 You can setup the database by running these three commands in sqlite [^1]
-```
+```sqlite
 CREATE TABLE charities(short TEXT PRIMARY KEY NOT NULL UNIQUE, flavor_text TEXT NOT NULL, link_text TEXT NOT NULL, link TEXT NOT NULL UNIQUE);
 CREATE TABLE social_buttons(short TEXT PRIMARY KEY NOT NULL UNIQUE, at TEXT NOT NULL, name TEXT NOT NULL, link TEXT NOT NULL UNIQUE);
 CREATE TABLE projects(short TEXT PRIMARY KEY NOT NULL UNIQUE, alt TEXT NOT NULL UNIQUE, name TEXT NOT NULL UNIQUE, image_path TEXT NOT NULL UNIQUE, description TEXT NOT NULL UNIQUE);
@@ -59,7 +59,7 @@ chmod +X <prefered-directory>/run.sh
 ```
 
 Then you can run
-```
+```bash
 cd <prefered-directory>
 ./run.sh
 ``` 
